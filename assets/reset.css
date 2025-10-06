@@ -1,0 +1,61 @@
+/* =========================================
+   reset.css
+   ブラウザごとの初期デザインを統一する基本リセット
+   ========================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* スムーズスクロール・視覚安定 */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* ベース設定 */
+body {
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 画像とメディア */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 入力系を素の状態に */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ボタン系はデフォルトの装飾を削除 */
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* テーブルをシンプルに */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* リンクの初期化 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* フォーカス見失い防止 */
+:root { --focus-color: #94a3b8; }
+:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
