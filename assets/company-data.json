@@ -2,7 +2,7 @@
   {
     "id": "jpreturns",
     "name": "J.P.Returns株式会社",
-    "logo": "images/logos/jpreturns_logo.png",
+    "logo": "assets/images/logos/jpreturns_logo.png",
     "officialLink": "https://chatbot.jpreturns.com/ebook_consultingsoudanB/",
     "overallRating": 4.8,
     "reasons": [
@@ -48,7 +48,7 @@
   {
     "id": "renosy",
     "name": "リノシー",
-    "logo": "images/logos/renosy_logo.png",
+    "logo": "assets/images/logos/renosy_logo.png",
     "officialLink": "https://inquiry.renosy.com/special/asset22_pp/?utm_source=aa_canny&utm_medium=af&utm_campaign=cpa&affnmsid=8850e891772d2488c312936018cfc63d2334a2ad",
     "overallRating": 4.0,
     "reasons": [
@@ -94,7 +94,7 @@
   {
     "id": "shinoken",
     "name": "シノケンハーモニー",
-    "logo": "images/logos/shinoken_logo.jpg",
+    "logo": "assets/images/logos/shinoken_logo.jpg",
     "officialLink": "#",
     "overallRating": 3.0,
     "reasons": [
@@ -132,7 +132,7 @@
   {
     "id": "toshin",
     "name": "トーシンパートナーズ",
-    "logo": "images/logos/toshin_logo.jpg",
+    "logo": "assets/images/logos/toshin_logo.jpg",
     "officialLink": "#",
     "overallRating": 3.8,
     "reasons": [
