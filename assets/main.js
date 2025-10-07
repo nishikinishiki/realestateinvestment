@@ -125,6 +125,28 @@ function renderColumns() {
   topics.forEach(t => ul.appendChild(el("li", {}, [ el("a", { href:t.href, html:t.title }) ])));
 }
 
+function setupFadeIn() {
+  const targets = Array.from(document.querySelectorAll(".fade-in"));
+  if (!targets.length) return;
+
+  const activate = el => el.classList.add("visible");
+
+  if (!("IntersectionObserver" in window)) {
+    targets.forEach(activate);
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      activate(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -10%" });
+
+  targets.forEach(t => observer.observe(t));
+}
+
 (async function init(){
   try{
     const companies = await loadCompanies();
@@ -132,6 +154,7 @@ function renderColumns() {
     renderRanking(companies, "総合");
     renderCards(companies);
     renderColumns();
+    setupFadeIn();
   }catch(e){
     console.error(e);
     $("#rankBody").innerHTML = `<tr><td colspan="5">読み込みに失敗しました</td></tr>`;
