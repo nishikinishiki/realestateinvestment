@@ -22,8 +22,7 @@
       "occupancyRate": { "symbol": "◎", "text": "99.5%" },
       "propertyArea": { "symbol": "◎", "text": "都心" },
       "interviewBonus": { "symbol": "◎", "text": "あり" },
-      "companyScale": { "symbol": "〇", "text": "中規模" },
-      "trackRecord": { "symbol": "◎", "text": "20年" }
+      "companyScale": { "symbol": "〇", "text": "創業20年" }
     },
     "points": [
       { "title": "年収500万以上の方必見!!手厚いサポートで手間なく運用できる", "text": "AIによる価値の高い物件選定や、専用アプリで物件の管理から確定申告までをサポートしてくれるため、普段忙しいサラリーマンや公務員、医師の方におすすめ※7" },
@@ -68,8 +67,7 @@
       "occupancyRate": { "symbol": "◎", "text": "99.7%" },
       "propertyArea": { "symbol": "◎", "text": "都心" },
       "interviewBonus": { "symbol": "◎", "text": "あり" },
-      "companyScale": { "symbol": "◎", "text": "大手" },
-      "trackRecord": { "symbol": "◎", "text": "GA technologies" }
+      "companyScale": { "symbol": "◎", "text": "大手" }
     },
     "points": [
       { "title": "年収500万以上の方必見!!手厚いサポートで手間なく運用できる", "text": "AIによる価値の高い物件選定や、専用アプリで物件の管理から確定申告までをサポートしてくれるため、普段忙しいサラリーマンや公務員、医師の方におすすめ※7" },
@@ -111,7 +109,10 @@
       "initialCost": { "symbol": "◎", "text": "1万円~" },
       "easeOfManagement": { "symbol": "〇", "text": "アプリで完結" },
       "supportSystem": { "symbol": "◎", "text": "24時間対応" },
-      "occupancyRate": { "symbol": "◎", "text": "99.5%" }
+      "occupancyRate": { "symbol": "◎", "text": "99.5%" },
+      "propertyArea": { "symbol": "◎", "text": "都心" },
+      "interviewBonus": { "symbol": "◎", "text": "あり" },
+      "companyScale": { "symbol": "◎", "text": "大手" }
     },
     "points": [
       { "title": "年収500万以上の方必見!!手厚いサポートで手間なく運用できる", "text": "AIによる価値の高い物件選定や、専用アプリで物件の管理から確定申告までをサポートしてくれるため、普段忙しいサラリーマンや公務員、医師の方におすすめ※7" },
@@ -149,7 +150,10 @@
       "initialCost": { "symbol": "◎", "text": "1万円~" },
       "easeOfManagement": { "symbol": "〇", "text": "アプリで完結" },
       "supportSystem": { "symbol": "◎", "text": "24時間対応" },
-      "occupancyRate": { "symbol": "◎", "text": "99.5%" }
+      "occupancyRate": { "symbol": "◎", "text": "99.5%" },
+      "propertyArea": { "symbol": "◎", "text": "都心" },
+      "interviewBonus": { "symbol": "◎", "text": "あり" },
+      "companyScale": { "symbol": "◎", "text": "大手" }
     },
     "points": [
       { "title": "平均的な利回り約4%。少ない資金から安定収入!!設立35年以上の確かな実績", "text": "35年以上に渡って数多のオーナーのパートナーとして培ってきた経験・ノウハウ・ネットワークを駆使し、グループの力を活かした総合力で安心できる堅実なマンション経営をサポート。" },

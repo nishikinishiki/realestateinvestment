@@ -11,9 +11,20 @@
   <link rel="stylesheet" href="assets/style.css" />
 
   <!-- 構造化データ -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"不動産投資会社ランキング","itemListElement":[]}
-  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "name": "不動産投資会社ランキング",
+        "itemListElement": []
+      } 
+    ]
+  }
+</script>
+
+  
 </head>
 
 <body>
@@ -42,7 +53,9 @@
         </picture>
       </div>
     </section>
-
+  
+    <div class="container two-col">
+    <div class="left-column">
     <!-- 始め方 -->
     <section id="start" class="container fade-in">
       <h2>不動産投資の始め方（3ステップ）</h2>
@@ -63,6 +76,24 @@
       </ul>
     </section>
 
+    <!-- 今月のおすすめ会社 -->
+    <section id="monthly-picks" class="container fade-in">
+      <h2>今月のおすすめ会社</h2>
+      <p class="muted">編集部が今月注目している不動産投資会社をピックアップ。</p>
+      <div id="monthlyPicks" class="cards">
+        <article class="card campaign-card" aria-labelledby="campaign-jpreturns">
+          <header class="campaign-header">
+            <img src="assets/images/logos/jpreturns_logo.png" alt="J.P.Returns ロゴ" width="160" height="40" loading="lazy">
+            <h3 id="campaign-jpreturns">J.P.Returns株式会社</h3>
+          </header>
+          <a href="https://chatbot.jpreturns.com/ebook_consultingsoudanB/" target="_blank" rel="nofollow sponsored noopener" class="campaign-banner-link">
+            <img src="assets/images/banners/jpreturns_banner_1.png" alt="J.P.Returns キャンペーンバナー" class="campaign-banner" loading="lazy">
+          </a>
+        </article>
+      </div>
+    </section>
+
+
     <!-- ランキング -->
     <section id="ranking" class="container fade-in">
       <h2>不動産投資会社ランキング</h2>
@@ -81,6 +112,68 @@
       <div id="companyCards" class="cards"></div>
     </section>
 
+    <!-- FAQ -->    
+    <section id="faq" class="faq">
+      <div class="container fade-in">
+        <h2>よくある質問</h2>
+        <div class="faq__list">
+          <div class="faq__item">
+            <button class="faq__question">🧾 不動産投資は節税にどの程度効果がありますか？</button>
+            <div class="faq__answer">
+              <p>
+                課税所得を圧縮できるため、高収入層では
+                <strong>年間で数十万〜100万円以上の節税効果</strong>
+                が見込まれるケースもあります。<br>
+                減価償却やローン金利などを経費として計上することで、所得税・住民税の負担を軽減し、
+                実質的な手取りを増やすことが可能です。<br>
+                具体的な金額や条件は個人の状況によって異なるため、詳細は各社へご相談ください。
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question">🏦 どのくらいの物件を購入できる人が多いですか？</button>
+            <div class="faq__answer">
+              <p>
+                金融機関や勤務先の属性にもよりますが、安定した収入のある上場企業勤務の方では、
+                <strong>3,000万〜6,000万円前後</strong> のローンが組まれるケースが多く見られます。<br>
+                例えば <strong>年収1,000万円程度の方</strong> であれば、
+                無理のない返済計画で都心の区分マンションを複数保有するケースも珍しくありません。<br>
+                適正な借入額や返済条件は企業ごとに異なるため、複数社のシミュレーション比較をおすすめします。
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question">💼 不動産投資は副業になりますか？</button>
+            <div class="faq__answer">
+              <p>
+                不動産投資は一般的に「<strong>副業には該当しません</strong>」。<br>
+                オーナーとして資産を運用する行為であり、会社の業務提供や兼業とはみなされません。<br>
+                そのため、多くの上場企業勤務の方が取り組んでおり、
+                <strong>手間をかけずに本業と両立できる資産運用</strong>として選ばれています。
+              </p>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <button class="faq__question">🏢 不動産投資会社ごとの違いはどこにありますか？</button>
+            <div class="faq__answer">
+              <p>
+                各社で得意分野が異なり、物件エリア・提案内容・管理体制・サポート範囲にも特徴があります。<br>
+                たとえば、都心区分マンションに強い会社や、税理士と連携して節税サポートを行う会社など様々です。<br>
+                また、<strong>担当者との相性</strong>も重要な要素のひとつです。
+                複数社へ相談し、比較検討することで自分に合ったパートナーが見つかります。
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+
     <!-- コラム -->
     <section id="columns" class="container fade-in">
       <h2>不動産投資の基礎コラム</h2>
@@ -92,6 +185,24 @@
       <h2>アフィリエイトに関する表記</h2>
       <p class="muted">当サイトはアフィリエイト広告を利用しています。評価基準は「選び方」の項目をご確認ください。</p>
     </section>
+      </div>
+
+      <!-- Right Column (PC) -->
+      <aside id="right-rail" class="right-column" aria-label="サイド情報">
+        <section class="rail-widget" id="rail-monthly">
+          <h3>今月のおすすめ</h3>
+          <div id="railMonthly"></div>
+        </section>
+        <section class="rail-widget" id="rail-columns">
+          <h3>コラム記事</h3>
+          <ul id="railColumns"></ul>
+        </section>
+        <section class="rail-widget" id="rail-top3">
+          <h3>当サイト人気TOP3</h3>
+          <ol id="railTop3"></ol>
+        </section>
+      </aside>
+    </div>
   </main>
 
   <footer class="footer">

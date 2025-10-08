@@ -3,7 +3,7 @@
 :root {
   --brand: #2563eb;
   --accent: #1e40af;
-  --bg: #f8fafc;
+  --bg: #ffffff;
   --card: #ffffff;
   --border: #e2e8f0;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -24,9 +24,7 @@ body {
   border-bottom: 1px solid var(--border);
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   padding: 12px 0;
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  position: static;
 }
 .flex-between { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 700; color: var(--accent); font-size: 18px; }
@@ -54,7 +52,7 @@ body {
 .hero-text p { color: #334155; font-size: 16px; }
 
 /* Container */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* Buttons */
 .btn {
@@ -87,9 +85,23 @@ h2 { border-left: 4px solid var(--brand); padding-left: 10px; color: var(--accen
   text-align: left;
 }
 
+/* Wide table horizontal scroll */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.wide-table { min-width: 1280px; }
+.wide-table th, .wide-table td { white-space: nowrap; }
+
 /* Card */
 .cards { display: grid; gap: 24px; margin-top: 24px; }
 @media (min-width: 960px) { .cards { grid-template-columns: 1fr 1fr; } }
+
+/* Companies details: force single column on desktop */
+@media (min-width: 960px) {
+  #companyCards { grid-template-columns: 1fr; }
+}
 
 .card {
   background: var(--card);
@@ -105,6 +117,68 @@ h2 { border-left: 4px solid var(--brand); padding-left: 10px; color: var(--accen
 .fade-in { opacity: 0; transform: translateY(10px); transition: all 0.6s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+
+/* FAQ Accordion */
+.faq__list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.faq__question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: var(--brand, #004b8d);
+  transition: transform 0.2s ease;
+}
+
+.faq__item.active .faq__question::after {
+  content: '-';
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq__question:hover {
+  color: var(--brand, #004b8d);
+}
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  line-height: 1.75;
+  color: #333;
+}
+
+.faq__item.active .faq__answer {
+  max-height: 500px;
+  padding-bottom: 20px;
+}
+
+.faq__answer p {
+  padding-right: 24px;
+}
+
 /* Footer */
 .footer {
   text-align: center;
@@ -112,4 +186,54 @@ h2 { border-left: 4px solid var(--brand); padding-left: 10px; color: var(--accen
   background: #fff;
   border-top: 1px solid var(--border);
   color: #64748b;
+}
+
+/* Right rail (desktop only) */
+.right-rail {
+  position: fixed;
+  right: 20px;
+  top: 80px; /* below sticky header */
+  width: 300px;
+  display: none;
+  z-index: 40;
+}
+.rail-widget {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.rail-widget h3 { margin: 0 0 8px; font-size: 16px; color: var(--accent); }
+.rail-widget ul, .rail-widget ol { margin: 0; padding-left: 18px; }
+.rail-widget li { margin: 6px 0; }
+.rail-widget a { color: #0f172a; text-decoration: none; }
+.rail-widget a:hover { text-decoration: underline; }
+
+@media (min-width: 1280px) {
+  .right-rail { display: block; }
+}
+
+/* Company details extras */
+.company-logo { max-height: 40px; margin: 6px 0 8px; }
+.company-banner { width: 100%; height: auto; border-radius: 12px; display: block; margin: 10px 0; }
+.company-banner.second { margin-top: 14px; }
+
+/* Two-column layout (PC) */
+.two-col { margin-top: 24px; }
+/* widen only this container to fit sidebar */
+.two-col.container { max-width: 1200px; }
+.left-column { min-width: 0; }
+.right-column { display: none; }
+/* Avoid double padding/width on nested containers inside left column */
+.two-col .left-column > .container { max-width: none; margin: 0; padding: 0; }
+@media (min-width: 1280px) {
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    align-items: start;
+  }
+  .right-column { display: block; }
 }
