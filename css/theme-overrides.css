@@ -1,0 +1,143 @@
+/* =========================================================
+   Tone & Manner: Attached Design Alignment (Overrides)
+   - Load this after css/style.css
+   - Non-destructive: only overrides/extends
+========================================================= */
+
+/* Palette & base typography override */
+:root {
+  --font-family-base: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  --main-text-color: #2f3a4a;
+  --key-color-accent: #2f6ee0;           /* Primary blue */
+  --key-color-accent-hover: #1e4fc3;     /* Darker blue */
+  --accent-red: #e73c45;                 /* CTA red */
+  --accent-red-dark: #c92f37;
+  --background-color-light: #f5f9ff;     /* Light sky */
+  --background-color-medium: #eaf3ff;    /* Sky stripe base */
+  --border-color: #d9e3f5;
+  --border-radius: 10px;
+}
+
+body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+
+/* Header refinement */
+.header { padding: 16px 0; border-bottom: 0; box-shadow: none; }
+.header .logo { font-weight: 900; color: var(--key-color-accent); letter-spacing: .02em; font-size: 22px; }
+
+/* Hero-like intro */
+.intro-text {
+  position: relative; padding: 32px; border-radius: 14px; border: 1px solid var(--border-color);
+  background: repeating-linear-gradient(-45deg, var(--background-color-medium) 0 12px, var(--background-color-light) 12px 24px);
+  box-shadow: none; overflow: hidden;
+}
+.intro-text::after {
+  content: ""; position: absolute; right: -60px; top: -60px; width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(47,110,224,0.15), rgba(47,110,224,0));
+}
+
+/* Section title ribbon */
+h2 {
+  position: relative; color: #fff; font-size: 26px; margin-bottom: 24px; padding: 12px 16px; border-radius: 10px;
+  background: linear-gradient(90deg, var(--key-color-accent) 0%, #4c8dff 100%);
+}
+h2::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 120px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+  background: linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,255,255,0)); }
+
+/* Tabs → pill style */
+.ranking-tabs { gap: 8px; margin-bottom: 16px; }
+.tab-button {
+  padding: 10px 16px; font-size: 14px; font-weight: 700; border-radius: 999px; background: #fff; transition: all .2s ease;
+}
+.tab-button.active { background: var(--key-color-accent); color: #fff; border-color: var(--key-color-accent); box-shadow: none; }
+.tab-button:not(.active):hover { background: var(--background-color-light); opacity: 1; }
+
+/* Comparison table polish */
+.comparison-table th { background: linear-gradient(180deg, var(--background-color-medium) 0%, #f5f9ff 100%); font-weight: 800; color: #30415a; }
+.comparison-table tbody tr:hover { background-color: var(--background-color-light); }
+.comparison-table tbody tr:nth-child(even) { background-color: #fbfdff; }
+.comparison-table .rank {
+  display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%;
+  font-size:16px; font-weight:800; color:var(--key-color-accent);
+  background: linear-gradient(180deg,#fff 0%,#eef4ff 100%);
+  border:2px solid var(--key-color-accent);
+}
+
+/* Tags */
+.tag { background:#eef4ff; color:var(--key-color-accent); border:1px solid var(--border-color); border-radius:999px; padding:6px 10px; font-weight:700; }
+
+/* Company highlight cards */
+.company-highlight { border-radius:14px; box-shadow: none; position:relative; padding:28px; }
+.company-highlight::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px; border-top-left-radius:14px; border-bottom-left-radius:14px; background:linear-gradient(180deg,var(--key-color-accent),#4c8dff); }
+
+/* CTA buttons → red accent */
+.cta-button {
+  background: linear-gradient(180deg, var(--accent-red) 0%, #d8313a 100%);
+  color:#fff; font-weight:800; border-radius:999px; padding:14px 28px; border:none;
+  box-shadow: none;
+  transition: none;
+}
+.cta-button:hover { transform: none; box-shadow: none; filter: none; }
+.cta-button.blue, .cta-button--primary { background: linear-gradient(180deg, var(--key-color-accent) 0%, var(--key-color-accent-hover) 100%); box-shadow: none; }
+
+/* Sidebar widgets */
+.sidebar-widget { background:#fff; border:1px solid var(--border-color); border-radius:14px; box-shadow: none; }
+
+/* Update strip */
+.update-info { background:#f7faff; color:#5a6a85; padding:10px 0; border-bottom:1px solid var(--border-color); }
+
+/* Mobile adjustments for new elements */
+@media (max-width:768px){ .cta-button{width:100%; padding:14px;} }
+
+/* Shadow reset for anything left in base */
+.column-item:hover, .tab-button.active, .review-box, .column-item, .footer, .header, .intro-text, .company-highlight, .cta-button, .cta-button:hover, .cta-button.blue, .cta-button--primary, .sidebar-widget {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* ==============================
+   company-highlight: h3 title bar
+=============================== */
+.company-highlight h3 {
+  margin: 0 0 16px;
+  background: linear-gradient(180deg, var(--key-color-accent) 0%, #1e55c5 100%);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #1e4fc3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+}
+.company-highlight h3 .rank {
+  position: absolute;
+  left: -12px;
+  top: -12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, #d4af37 0%, #b88a0a 100%);
+  color: #fff;
+  border: 2px solid #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+.company-highlight h3 .score-badge {
+  margin-left: 12px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 108px;
+}
+.company-highlight h3 .score-label { font-size: 11px; color: #5a6a85; font-weight: 700; line-height: 1; }
+.company-highlight h3 .score-value { font-size: 14px; color: var(--accent-red); font-weight: 800; line-height: 1; }
+

@@ -1,0 +1,637 @@
+/* :root はドキュメントのルート要素 (<html>) を選択し、カスタムプロパティ (CSS変数) を定義します */
+:root {
+    --main-text-color: #333333;
+    --key-color-accent: #005bac; /* 落ち着いた青に変更 */
+    --key-color-accent-hover: #004a8c; /* ホバー色も変更 */
+    --background-color-light: #f8f8f8;
+    --background-color-medium: #f5f5f5;
+    --border-color: #dddddd;
+    --white-color: #ffffff;
+    --font-family-base: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    --content-width: 1100px;
+    --border-radius: 8px;
+    --star-color-active: #f5a623; /* 星評価のアクティブ色 */
+    --star-color-inactive: #d8d8d8; /* 星評価の非アクティブ色 */
+}
+
+/* --- 基本スタイルとリセット --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--main-text-color);
+    background-color: var(--white-color);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+a {
+    color: var(--key-color-accent);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+h1 { font-size: 32px; text-align: center; margin-bottom: 24px; }
+h2 { font-size: 28px; border-left: 4px solid var(--key-color-accent); padding-left: 16px; margin-bottom: 32px; } /* デザイン変更 */
+h3 { font-size: 22px; border-left: 4px solid var(--key-color-accent); padding-left: 12px; margin-bottom: 24px; } /* 太さを調整 */
+h4 { font-size: 18px; background-color: var(--background-color-medium); padding: 12px 16px; border-radius: var(--border-radius); margin-bottom: 16px;}
+h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+
+/* --- レイアウト構造 --- */
+.container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--white-color);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--key-color-accent);
+}
+
+.main {
+    /* main-layout に padding を移動 */
+}
+
+.main-layout {
+    padding: 60px 0;
+    display: flex;
+    gap: 40px;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* --- サイドバー sticky --- */
+.sidebar-inner {
+    position: sticky;
+    top: 20px;
+}
+
+.footer {
+    background-color: var(--main-text-color);
+    color: var(--white-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: var(--white-color);
+    margin: 0 10px;
+}
+
+/* --- コンポーネントスタイル --- */
+/* セクション */
+.section {
+    margin-bottom: 60px;
+}
+
+.intro-text {
+    background-color: var(--background-color-light);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+}
+
+/* タブ切り替え */
+.ranking-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.tab-button {
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color-light);
+    color: var(--main-text-color);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+.tab-button.active {
+    background-color: var(--white-color);
+    color: var(--key-color-accent);
+    border-color: var(--key-color-accent);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.tab-button:not(.active):hover {
+    opacity: 0.8;
+}
+
+/* テーブル */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+    background: var(--white-color);
+}
+
+.comparison-table th, .comparison-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    text-align: center;
+}
+
+.comparison-table th {
+    background-color: var(--background-color-medium);
+    font-weight: bold;
+}
+
+.comparison-table tbody tr {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comparison-table tbody tr:hover {
+    background-color: var(--background-color-light); /* 控えめな色に変更 */
+}
+
+.comparison-table .company-name {
+    font-weight: bold;
+    text-align: left;
+}
+
+.comparison-table .rank {
+    font-size: 22px; /* 少し小さく */
+    font-weight: bold;
+    color: var(--main-text-color); /* 色を控えめに変更 */
+}
+
+.comparison-table .rating {
+    font-weight: bold;
+    color: var(--key-color-accent);
+    font-size: 18px;
+}
+
+/* ボタン */
+.cta-button {
+    display: inline-block;
+    background-color: var(--key-color-accent); /* グラデーションを単色に変更 */
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 14px 32px; /* 少し調整 */
+    border-radius: var(--border-radius); /* 角丸を調整 */
+    text-align: center;
+    box-shadow: none; /* 影を削除 */
+    transition: background-color 0.3s; /* トランジションをシンプルに */
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    opacity: 1;
+    background-color: var(--key-color-accent-hover); /* ホバー効果を色の変更のみに */
+    transform: none; /* 動きを削除 */
+    box-shadow: none; /* 影を削除 */
+}
+
+/* 企業紹介ハイライト */
+.company-highlight {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+    padding: 32px;
+    background-color: var(--white-color);
+    transition: none; /* トランジションを削除 */
+}
+
+.company-highlight:hover {
+    box-shadow: none; /* 影を削除 */
+}
+
+.highlight-header {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.highlight-info {
+    flex: 1;
+}
+
+.highlight-image-cta {
+    width: 250px;
+    text-align: center;
+}
+
+.highlight-image-cta img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.tag {
+    background-color: var(--key-color-accent);
+    color: var(--white-color);
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* 監修者情報 */
+.supervisor-profile {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background-color: var(--background-color-light);
+    padding: 32px;
+    border-radius: var(--border-radius);
+}
+
+.supervisor-img img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.supervisor-details h3 {
+    border: none;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.supervisor-details h4 {
+    background: none;
+    padding: 0;
+    font-size: 16px;
+    color: var(--main-text-color);
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* コラム記事 */
+.column-list {
+    display: grid;
+    gap: 24px;
+}
+
+.column-item {
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.3s;
+}
+
+.column-item:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.column-item h4 {
+    margin-top: 0;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+.column-item h4 a {
+    color: var(--main-text-color);
+    text-decoration: underline;
+}
+
+.column-item p {
+    margin-bottom: 0;
+}
+
+/* 更新情報エリア */
+.update-info {
+    background-color: var(--background-color-medium);
+    padding: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* おすすめ企業ウィジェット */
+.recommended-company-widget img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+}
+
+.recommended-company-widget p {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.recommended-company-widget .cta-button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+}
+
+/* 口コミ・監修コメント */
+.review-box {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    margin-top: 24px;
+    position: relative;
+}
+
+.review-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* 利用者口コミボックス (レイアウト調整) */
+.review-box-user {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.review-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    /* SVGファイル自体に背景色や円が含まれるため、CSSでの装飾は削除 */
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.review-box-user .review-header h4 {
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px; /* 画像に合わせて調整 */
+    font-weight: bold;
+    color: var(--main-text-color);
+}
+
+.review-meta {
+    font-size: 14px;
+    color: #666;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.star-rating {
+    color: var(--star-color-active);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+/* 星評価のロジック（簡易版）: data-ratingに基づいて星を表示 */
+/* より厳密にはJSか、CSSのテクニック（mask, clip-path）が必要です */
+/* ここでは簡易的にdata-ratingに応じた色分けを想定 */
+.review-rating[data-rating^="4"] .star-rating::after { content: ""; /* 4.5星などを表現する場合 */ }
+.review-rating[data-rating^="3"] .star-rating { color: var(--star-color-inactive); /* 例 */ }
+
+
+.rating-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--star-color-active);
+    margin-left: 10px;
+}
+
+
+/* 口コミスライダー */
+.review-slider-container {
+    position: relative;
+    overflow: hidden;
+    margin-top: 24px;
+}
+.review-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.review-slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0 5px; /* スライド間のわずかな余白 */
+}
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--main-text-color);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider-nav.prev { left: 10px; }
+.slider-nav.next { right: 10px; }
+.slider-dots {
+    text-align: center;
+    margin-top: 16px;
+}
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+.dot.active {
+    background-color: var(--key-color-accent);
+}
+
+/* サイドバーウィジェット */
+.sidebar-widget {
+    background-color: var(--background-color-light);
+    padding: 24px;
+    border-radius: var(--border-radius);
+    margin-bottom: 24px;
+}
+
+.sidebar-widget h4 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding: 0;
+    background-color: transparent;
+    border-bottom: 2px solid var(--key-color-accent);
+    padding-bottom: 8px;
+}
+
+/* 人気記事ウィジェット */
+.popular-articles-widget .popular-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+.popular-articles-widget .popular-list li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 30px;
+}
+.popular-articles-widget .popular-list li::before {
+    content: counter(popular-counter);
+    counter-increment: popular-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background-color: var(--key-color-accent);
+    color: var(--white-color);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    line-height: 22px;
+}
+.popular-articles-widget .popular-list li:nth-child(1)::before { background-color: #d4af37; } /* Gold */
+.popular-articles-widget .popular-list li:nth-child(2)::before { background-color: #c0c0c0; } /* Silver */
+.popular-articles-widget .popular-list li:nth-child(3)::before { background-color: #cd7f32; } /* Bronze */
+
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* --- レスポンシブ対応 --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 19px; }
+
+    .main-layout {
+        flex-direction: column;
+        padding: 30px 0;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+    
+    .sidebar-inner {
+        position: static;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+    
+    .supervisor-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .highlight-header {
+        flex-direction: column;
+    }
+    
+    .highlight-image-cta {
+        width: 100%;
+    }
+    
+    .cta-button {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .review-box-user {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .review-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+

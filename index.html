@@ -1,222 +1,476 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>不動産投資会社の比較・ランキング | 初心者向けの選び方</title>
-  <meta name="description" content="不動産投資を始めたい初心者の方へ。信頼できる不動産投資会社を比較・ランキング形式で紹介します。">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/reset.css" />
-  <link rel="stylesheet" href="assets/style.css" />
-
-  <!-- 構造化データ -->
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ItemList",
-        "name": "不動産投資会社ランキング",
-        "itemListElement": []
-      } 
-    ]
-  }
-</script>
-
-  
-</head>
-
-<body>
-  <!-- GTMヘッドスニペットはここに（GTM管理画面のコードを挿入） -->
-
-  <header class="header">
-    <div class="container flex-between">
-      <h1 class="logo">不動産投資比較ナビ</h1>
-      <nav><a href="#ranking" class="btn small">ランキングへ</a></nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- ヒーロー -->
-    <section class="hero fade-in">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h1>不動産投資会社の比較・ランキング</h1>
-          <p>信頼できる5社を厳選。初心者でも安心して資料請求できる不動産投資会社を徹底比較。</p>
-          <a href="#ranking" class="btn large">ランキングを見る</a>
-        </div>
-        <picture>
-          <source srcset="assets/images/hero.avif" type="image/avif">
-          <source srcset="assets/images/hero.webp" type="image/webp">
-          <img src="assets/images/hero.jpg" alt="不動産投資の比較イメージ" width="600" height="400" decoding="async" fetchpriority="high">
-        </picture>
-      </div>
-    </section>
-  
-    <div class="container two-col">
-    <div class="left-column">
-      
-    <!-- 始め方 -->
-    <section id="start" class="container fade-in">
-      <h2>不動産投資の始め方（3ステップ）</h2>
-      <ol class="steps">
-        <li><span>1</span> 目的を決める（年金代替／節税／資産形成）</li>
-        <li><span>2</span> 予算・ローンの目安を把握（初心者はワンルーム中古が王道）</li>
-        <li><span>3</span> 複数社で提案を比較（収支シミュレーションの前提を確認）</li>
-      </ol>
-    </section>
-
-    <!-- 選び方 -->
-    <section id="criteria" class="container fade-in">
-      <h2>不動産投資会社の選び方</h2>
-      <ul class="criteria">
-        <li>✔ 実績・透明性・提案品質・管理・口コミの5軸で評価</li>
-        <li>✔ 自分に合った「得意領域」を持つ会社を選ぶ</li>
-        <li>✔ 資料請求前にシミュレーションを確認する</li>
-      </ul>
-    </section>
-
-    <!-- 今月のおすすめ会社 -->
-    <section id="monthly-picks" class="container fade-in">
-      <h2>今月のおすすめ会社</h2>
-      <p class="muted">編集部が今月注目している不動産投資会社をピックアップ。</p>
-      <div id="monthlyPicks" class="cards">
-        <article class="card campaign-card" aria-labelledby="campaign-jpreturns">
-          <header class="campaign-header">
-            <img src="assets/images/logos/jpreturns_logo.png" alt="J.P.Returns ロゴ" width="160" height="40" loading="lazy">
-            <h3 id="campaign-jpreturns">J.P.Returns株式会社</h3>
-          </header>
-          <a href="https://chatbot.jpreturns.com/ebook_consultingsoudanB/" target="_blank" rel="nofollow sponsored noopener" class="campaign-banner-link">
-            <img src="assets/images/banners/jpreturns_banner_1.png" alt="J.P.Returns キャンペーンバナー" class="campaign-banner" loading="lazy">
-          </a>
-        </article>
-      </div>
-    </section>
-
-
-    <!-- ランキング -->
-    <section id="ranking" class="container fade-in">
-      <h2>不動産投資会社ランキング</h2>
-      <div id="controls" class="controls"></div>
-      <table class="table" aria-describedby="criteria">
-        <thead>
-          <tr><th>順位</th><th>会社名</th><th>総合</th><th>得意領域</th><th>公式リンク</th></tr>
-        </thead>
-        <tbody id="rankBody"><tr><td colspan="5">読み込み中...</td></tr></tbody>
-      </table>
-    </section>
-
-    <!-- 詳細 -->
-    <section id="companies" class="container fade-in">
-      <h2>各社の詳細情報</h2>
-      <div id="companyCards" class="cards"></div>
-    </section>
-
-    <!-- FAQ -->    
-    <section id="faq" class="faq">
-      <div class="container fade-in">
-        <h2>よくある質問</h2>
-        <div class="faq__list">
-          <div class="faq__item">
-            <button class="faq__question">🧾 不動産投資は節税にどの程度効果がありますか？</button>
-            <div class="faq__answer">
-              <p>
-                課税所得を圧縮できるため、高収入層では
-                <strong>年間で数十万〜100万円以上の節税効果</strong>
-                が見込まれるケースもあります。<br>
-                減価償却やローン金利などを経費として計上することで、所得税・住民税の負担を軽減し、
-                実質的な手取りを増やすことが可能です。<br>
-                具体的な金額や条件は個人の状況によって異なるため、詳細は各社へご相談ください。
-              </p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <button class="faq__question">🏦 どのくらいの物件を購入できる人が多いですか？</button>
-            <div class="faq__answer">
-              <p>
-                金融機関や勤務先の属性にもよりますが、安定した収入のある上場企業勤務の方では、
-                <strong>3,000万〜6,000万円前後</strong> のローンが組まれるケースが多く見られます。<br>
-                例えば <strong>年収1,000万円程度の方</strong> であれば、
-                無理のない返済計画で都心の区分マンションを複数保有するケースも珍しくありません。<br>
-                適正な借入額や返済条件は企業ごとに異なるため、複数社のシミュレーション比較をおすすめします。
-              </p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <button class="faq__question">💼 不動産投資は副業になりますか？</button>
-            <div class="faq__answer">
-              <p>
-                不動産投資は一般的に「<strong>副業には該当しません</strong>」。<br>
-                オーナーとして資産を運用する行為であり、会社の業務提供や兼業とはみなされません。<br>
-                そのため、多くの上場企業勤務の方が取り組んでおり、
-                <strong>手間をかけずに本業と両立できる資産運用</strong>として選ばれています。
-              </p>
-            </div>
-          </div>
-
-          <div class="faq__item">
-            <button class="faq__question">🏢 不動産投資会社ごとの違いはどこにありますか？</button>
-            <div class="faq__answer">
-              <p>
-                各社で得意分野が異なり、物件エリア・提案内容・管理体制・サポート範囲にも特徴があります。<br>
-                たとえば、都心区分マンションに強い会社や、税理士と連携して節税サポートを行う会社など様々です。<br>
-                また、<strong>担当者との相性</strong>も重要な要素のひとつです。
-                複数社へ相談し、比較検討することで自分に合ったパートナーが見つかります。
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【2024年最新】プロが選ぶ！不動産投資会社おすすめランキングTOP8｜初心者向け徹底比較</title>
+    <meta name="description" content="【専門家が厳選】最新の不動産投資会社ランキングTOP8をご紹介。初心者でも安心して始められる優良企業を利回り、実績、サポート体制で徹底比較。各社の特徴や限定キャンペーン、利用者の口コミも掲載中。まずは無料の資料請求から始めましょう。">
     
+    <!-- フォント & スタイル -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tone & manner overrides matching attached design -->
+    <link rel="stylesheet" href="css/theme-overrides.css">
+</head>
+<body>
 
-    <!-- コラム -->
-    <section id="columns" class="container fade-in">
-      <h2>不動産投資の基礎コラム</h2>
-      <ul id="columnList" class="columns-list"></ul>
-    </section>
+    <!-- =======================================================
+    ヘッダーセクション
+    ======================================================== -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo">不動産投資ランキング</div>
+            <nav class="header-nav">
+                <!-- ナビゲーションリンクが必要な場合はここに追加 -->
+            </nav>
+        </div>
+    </header>
 
-    <!-- アフィリエイト表記 -->
-    <section id="policy" class="container fade-in">
-      <h2>アフィリエイトに関する表記</h2>
-      <p class="muted">当サイトはアフィリエイト広告を利用しています。評価基準は「選び方」の項目をご確認ください。</p>
-    </section>
-      </div>
-
-      <!-- Right Column (PC) -->
-      <aside id="right-rail" class="right-column" aria-label="サイド情報">
-        <section class="rail-widget" id="rail-monthly">
-          <h3>今月のおすすめ</h3>
-          <div id="railMonthly"></div>
-        </section>
-        <section class="rail-widget" id="rail-columns">
-          <h3>コラム記事</h3>
-          <ul id="railColumns"></ul>
-        </section>
-        <section class="rail-widget" id="rail-top3">
-          <h3>当サイト人気TOP3</h3>
-          <ol id="railTop3"></ol>
-        </section>
-      </aside>
+    <!-- 更新情報エリア -->
+    <div class="update-info">
+        <div class="container">
+            <span>更新日：2025年09月18日</span>
+            <span style="margin-left: 24px;">このページはプロモーションを含みます</span>
+        </div>
     </div>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <small>© 2025 Real Estate Compare</small>
-    </div>
-  </footer>
+    <!-- =======================================================
+    メインコンテンツエリア
+    ======================================================== -->
+    <main class="main">
+        <div class="container">
+            <h1><span style="color: var(--key-color-accent);">プロが選ぶ！</span><br>不動産投資会社おすすめランキングTOP8</h1>
+            
+            <div class="intro-text section">
+                <p>「将来のために資産形成を始めたいけど、どの不動産投資会社を選べばいいかわからない…」そんなお悩みはありませんか？</p>
+                <p>当サイトでは、数ある不動産投資会社の中から、<strong>特に初心者におすすめできる優良企業を8社厳選</strong>しました。専門家の視点から「利回り」「実績」「サポート体制」などを徹底比較し、ランキング形式でご紹介します。あなたの目的に合った最適なパートナーを見つける手助けになれば幸いです。</p>
+            </div>
 
-  <!-- JS -->
-  <script defer src="assets/main.js"></script>
-  <script defer src="utils/analytics.js"></script>
-  <script defer src="utils/utm-helper.js"></script>
-  <script defer src="utils/lazyload.js"></script>
-  <!-- GTM noscriptはここに -->
+            <div class="main-layout">
+                <!-- =======================================================
+                左カラム: 主要コンテンツ
+                ======================================================== -->
+                <div class="main-content">
+                    
+                    <!-- 総合比較表セクション -->
+                    <section class="section" id="ranking-summary">
+                        <h2>総合比較はやわかり表</h2>
+
+                        <!-- ランキング切り替えタブ -->
+                        <div class="ranking-tabs">
+                            <button class="tab-button active" data-tab="summary">総合ランキング</button>
+                            <button class="tab-button" data-tab="initial-cost">初期費用</button>
+                            <button class="tab-button" data-tab="support">サポート体制</button>
+                            <button class="tab-button" data-tab="occupancy-rate">入居率</button>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="comparison-table" id="summary-table">
+                                <thead>
+                                    <tr>
+                                        <th>順位</th>
+                                        <th>会社名</th>
+                                        <th>初期費用</th>
+                                        <th>管理のしやすさ</th>
+                                        <th>サポート体制</th>
+                                        <th>入居率</th>
+                                        <th>物件エリア</th>
+                                        <th>面談特典</th>
+                                        <th>会社規模</th>
+                                        <th>公式</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- データは一例です -->
+                                    <tr data-id="renosy" data-area="都心">
+                                        <td><span class="rank">1</span></td>
+                                        <td class="company-name">リノシー</td>
+                                        <td><span class="rating">◎</span> 10万円~</td>
+                                        <td><span class="rating">◎</span> アプリで完結</td>
+                                        <td><span class="rating">◎</span> 充実</td>
+                                        <td>99.6%</td>
+                                        <td>都心</td>
+                                        <td>Amazon<br>5万円</td>
+                                        <td><span class="rating">◎</span> 上場</td>
+                                        <td><a href="#company-renosy" class="cta-button" data-company-id="renosy">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="jp-returns" data-area="都心">
+                                        <td><span class="rank">2</span></td>
+                                        <td class="company-name">J.P.Returns</td>
+                                        <td><span class="rating">○</span> 30万円~</td>
+                                        <td><span class="rating">○</span> 普通</td>
+                                        <td><span class="rating">◎</span> 確定申告サポート</td>
+                                        <td>99.6%</td>
+                                        <td>都心</td>
+                                        <td>Amazon<br>5万円</td>
+                                        <td><span class="rating">○</span> 中堅</td>
+                                        <td><a href="#company-jp-returns" class="cta-button" data-company-id="jp-returns">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="toshin" data-area="都心">
+                                        <td><span class="rank">3</span></td>
+                                        <td class="company-name">トーシンパートナーズ</td>
+                                        <td><span class="rating">○</span> 30万円~</td>
+                                        <td><span class="rating">○</span> 普通</td>
+                                        <td><span class="rating">○</span> 標準的</td>
+                                        <td>99.0%</td>
+                                        <td>都心</td>
+                                        <td>-</td>
+                                        <td><span class="rating">○</span> 中堅</td>
+                                        <td><a href="#company-toshin" class="cta-button" data-company-id="toshin">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="synergy" data-area="全国">
+                                        <td><span class="rank">4</span></td>
+                                        <td class="company-name">シノケンハーモニー</td>
+                                        <td><span class="rating">◎</span> 10万円~</td>
+                                        <td><span class="rating">△</span> やや手間</td>
+                                        <td><span class="rating">○</span> 標準的</td>
+                                        <td>99.2%</td>
+                                        <td>全国</td>
+                                        <td>-</td>
+                                        <td><span class="rating">◎</span> 上場</td>
+                                        <td><a href="#company-synergy" class="cta-button" data-company-id="synergy">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="property-agent" data-area="都心">
+                                        <td><span class="rank">5</span></td>
+                                        <td class="company-name">プロパティエージェント</td>
+                                        <td><span class="rating">○</span> 50万円~</td>
+                                        <td><span class="rating">○</span> 普通</td>
+                                        <td><span class="rating">◎</span> 充実</td>
+                                        <td>99.5%</td>
+                                        <td>都心</td>
+                                        <td>-</td>
+                                        <td><span class="rating">◎</span> 上場</td>
+                                        <td><a href="#company-property-agent" class="cta-button" data-company-id="property-agent">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="zaitaku" data-area="都心">
+                                        <td><span class="rank">6</span></td>
+                                        <td class="company-name">日本財託</td>
+                                        <td><span class="rating">△</span> 100万円~</td>
+                                        <td><span class="rating">△</span> 手間あり</td>
+                                        <td><span class="rating">○</span> 標準的</td>
+                                        <td>98.8%</td>
+                                        <td>都心</td>
+                                        <td>-</td>
+                                        <td><span class="rating">○</span> 大手</td>
+                                        <td><a href="#company-zaitaku" class="cta-button" data-company-id="zaitaku">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="nomura" data-area="全国">
+                                        <td><span class="rank">7</span></td>
+                                        <td class="company-name">野村不動産</td>
+                                        <td><span class="rating">△</span> 高額</td>
+                                        <td><span class="rating">○</span> 普通</td>
+                                        <td><span class="rating">◎</span> 充実</td>
+                                        <td>非公開</td>
+                                        <td>全国</td>
+                                        <td>-</td>
+                                        <td><span class="rating">◎</span> 財閥系</td>
+                                        <td><a href="#company-nomura" class="cta-button" data-company-id="nomura">詳細</a></td>
+                                    </tr>
+                                    <tr data-id="mirap" data-area="都心">
+                                        <td><span class="rank">8</span></td>
+                                        <td class="company-name">ミラップ</td>
+                                        <td><span class="rating">○</span> 30万円~</td>
+                                        <td><span class="rating">○</span> 普通</td>
+                                        <td><span class="rating">◎</span> ライフプラン相談</td>
+                                        <td>非公開</td>
+                                        <td>都心</td>
+                                        <td>-</td>
+                                        <td><span class="rating">△</span> ベンチャー</td>
+                                        <td><a href="#company-mirap" class="cta-button" data-company-id="mirap">詳細</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    
+                    <!-- 企業紹介セクション -->
+                    <section class="section" id="company-details">
+                        <h2>ランキング詳細｜おすすめ企業TOP8</h2>
+                        
+                        <!-- 企業ハイライト: リノシー -->
+                        <article class="company-highlight" id="company-renosy" data-company-id="renosy" data-area="都心" data-yield="high">
+                            <h3><span class="rank">1位</span> リノシー (RENOSY)</h3>
+                            <div class="highlight-header">
+                                <div class="highlight-info">
+                                    <div class="tag-list">
+                                        <span class="tag">AI活用</span>
+                                        <span class="tag">初心者におすすめ</span>
+                                        <span class="tag">都心特化</span>
+                                    </div>
+                                    <p><strong>テクノロジーで不動産投資をスマートに。</strong>RENOSYはAIを活用して、将来性の高い物件を厳選。購入から管理、売却までをスマホアプリで完結できる手軽さが魅力です。忙しいビジネスパーソンや、初めて不動産投資を行う方に最適なサービスを提供しています。</p>
+                                </div>
+                                <div class="highlight-image-cta">
+                                    <img src="https://placehold.co/400x300/005bac/ffffff?text=RENOSY" alt="リノシーのイメージ画像" loading="lazy" width="400" height="300">
+                                    <a href="#" class="cta-button" data-company-id="renosy">無料資料請求はこちら</a>
+                                </div>
+                            </div>
+                            <!-- 監修者コメント -->
+                            <div class="review-box">
+                                <h4>専門家からの監修コメント</h4>
+                                <p>RENOSYの強みは、なんといってもデータに基づいた客観的な物件提案力です。属人的な営業を排し、AIが膨大なデータから導き出した投資価値の高い物件のみを紹介するため、初心者でも安心して判断できます。アプリの使いやすさも業界随一です。</p>
+                            </div>
+                            <!-- 利用者口コミ スライダー -->
+                            <div class="review-slider-container">
+                                <div class="review-slides">
+                                    <div class="review-slide">
+                                        <!-- 口コミボックス (画像参照に変更) -->
+                                        <div class="review-box review-box-user">
+                                            <!-- アイコンを画像ファイルに変更 -->
+                                            <img src="images/icon-male.svg" alt="利用者アイコン" class="review-icon">
+                                            <div class="review-content">
+                                                <div class="review-header">
+                                                    <h4>利用者口コミ (30代・男性)</h4>
+                                                    <span class="review-meta">(30代・男性)</span>
+                                                </div>
+                                                <div class="review-rating" data-rating="5.0">
+                                                    <span class="star-rating">★★★★★</span>
+                                                    <span class="rating-value">5.0</span>
+                                                </div>
+                                                <p>最初は不安でしたが、アプリで収支がいつでも確認できるので安心感があります。担当の方のレスポンスも早く、疑問点もすぐに解消できました。まさに次世代の不動産投資だと思います。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-slide">
+                                        <!-- 口コミボックス (画像参照に変更) -->
+                                        <div class="review-box review-box-user">
+                                            <!-- アイコンを画像ファイルに変更 -->
+                                            <img src="images/icon-female.svg" alt="利用者アイコン" class="review-icon">
+                                            <div class="review-content">
+                                                <div class="review-header">
+                                                    <h4>利用者口コミ (40代・女性)</h4>
+                                                    <span class="review-meta">(40代・女性)</span>
+                                                </div>
+                                                <div class="review-rating" data-rating="4.5">
+                                                    <span class="star-rating">★★★★☆</span>
+                                                    <span class="rating-value">4.5</span>
+                                                </div>
+                                                <p>他の会社とも比較しましたが、提案された物件の根拠が一番しっかりしていたのがRENOSYでした。AIの分析レポートは非常に説得力があります。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="slider-nav prev" aria-label="前の口コミ">&lt;</button>
+                                <button class="slider-nav next" aria-label="次の口コミ">&gt;</button>
+                                <div class="slider-dots"></div>
+                            </div>
+                        </article>
+
+                        <!-- 企業ハイライト: J.P.Returns -->
+                        <article class="company-highlight" id="company-jp-returns" data-company-id="jp-returns" data-area="都心" data-yield="high">
+                            <h3><span class="rank">2位</span> J.P.Returns</h3>
+                            <div class="highlight-header">
+                                <div class="highlight-info">
+                                    <div class="tag-list">
+                                        <span class="tag">高い入居率</span>
+                                        <span class="tag">駅近物件</span>
+                                        <span class="tag">節税対策</span>
+                                    </div>
+                                    <p><strong>驚異の入居率99.6%を誇る実力派。</strong>J.P.Returnsは、東京23区内の駅近・築浅中古マンションに特化。安定した家賃収入が期待できるだけでなく、手厚い管理体制でオーナーの手間を最小限に抑えます。節税に関するセミナーも人気です。</p>
+                                </div>
+                                <div class="highlight-image-cta">
+                                    <img src="https://placehold.co/400x300/333333/ffffff?text=J.P.Returns" alt="J.P.Returnsのイメージ画像" loading="lazy" width="400" height="300">
+                                    <a href="#" class="cta-button" data-company-id="jp-returns">無料資料請求はこちら</a>
+                                </div>
+                            </div>
+                            <!-- 監修者コメント -->
+                            <div class="review-box">
+                                <h4>専門家からの監修コメント</h4>
+                                <p>J.P.Returnsの魅力は、立地選定の確かさです。需要が落ちにくい都心の駅近物件に絞ることで、長期的に安定した収益を目指せるポートフォolioを組むことができます。管理体制も充実しており、オーナーからの信頼も厚い企業です。</p>
+                            </div>
+                            <!-- 利用者口コミ スライダー -->
+                             <div class="review-slider-container">
+                                <div class="review-slides">
+                                    <div class="review-slide">
+                                        <!-- 口コミボックス (画像参照に変更) -->
+                                        <div class="review-box review-box-user">
+                                            <!-- アイコンを画像ファイルに変更 -->
+                                            <img src="images/icon-male.svg" alt="利用者アイコン" class="review-icon">
+                                            <div class="review-content">
+                                                <div class="review-header">
+                                                    <h4>利用者口コミ (30代・会社員)</h4>
+                                                    <span class="review-meta">(30代・会社員)</span>
+                                                </div>
+                                                <div class="review-rating" data-rating="4.0">
+                                                    <span class="star-rating">★★★★☆</span>
+                                                    <span class="rating-value">4.0</span>
+                                                </div>
+                                                <p>担当の方の説明が非常に丁寧で、リスクについても正直に話してくれたので信頼できました。実際に購入後も、ほとんど空室になることなく安定して運用できています。確定申告のサポートも助かりました。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="slider-nav prev" aria-label="前の口コミ">&lt;</button>
+                                <button class="slider-nav next" aria-label="次の口コミ">&gt;</button>
+                                <div class="slider-dots"></div>
+                            </div>
+                        </article>
+
+                        <!-- 他の企業も同様の構造で追加 -->
+                        <article class="company-highlight" id="company-toshin" data-company-id="toshin" data-area="都心" data-yield="middle">
+                          <h3><span class="rank">3位</span> トーシンパートナーズ</h3>
+                          <p>自社ブランド「ZOOM」シリーズを展開。デザイン性が高く、入居者に選ばれる物件を提供しています。</p>
+                          <div class="highlight-image-cta" style="margin-top:20px;">
+                            <a href="#" class="cta-button" data-company-id="toshin">無料資料請求はこちら</a>
+                          </div>
+                        </article>
+
+                        <article class="company-highlight" id="company-synergy" data-company-id="synergy" data-area="全国" data-yield="middle">
+                          <h3><span class="rank">4位</span> シノケンハーモニー</h3>
+                          <p>自己資金10万円から始められる手軽さが魅力。全国の主要都市に物件を展開しており、地方在住者にも対応。</p>
+                          <div class="highlight-image-cta" style="margin-top:20px;">
+                            <a href="#" class="cta-button" data-company-id="synergy">無料資料請求はこちら</a>
+                          </div>
+                        </article>
+
+                        <article class="company-highlight" id="company-property-agent" data-company-id="property-agent" data-area="都心" data-yield="high">
+                          <h3><span class="rank">5位</span> プロパティエージェント</h3>
+                          <p>東証プライム上場企業としての信頼性が強み。厳選された都心の物件で、高い資産価値を維持します。</p>
+                           <div class="highlight-image-cta" style="margin-top:20px;">
+                            <a href="#" class="cta-button" data-company-id="property-agent">無料資料請求はこちら</a>
+                          </div>
+                        </article>
+                        
+                         <article class="company-highlight" id="company-zaitaku" data-company-id="zaitaku" data-area="都心" data-yield="middle">
+                          <h3><span class="rank">6位</span> 日本財託</h3>
+                          <p>中古ワンルームマンションに特化し、2万戸以上の管理実績。オーナー目線の手厚い管理が評判です。</p>
+                           <div class="highlight-image-cta" style="margin-top:20px;">
+                            <a href="#" class="cta-button" data-company-id="zaitaku">無料資料請求はこちら</a>
+                          </div>
+                        </article>
+                        
+                         <article class="company-highlight" id="company-nomura" data-company-id="nomura" data-area="全国" data-yield="low">
+                          <h3><span class="rank">7位</span> 野村不動産</h3>
+                          <p>大手デベロッパーならではのブランド力と品質。新築物件を中心に幅広い選択肢を提供しています。</p>
+                          <div class="highlight-image-cta" style="margin-top:20px;">
+                            <a href="#" class="cta-button" data-company-id="nomura">無料資料請求はこちら</a>
+                          </div>
+                        </article>
+                        
+                         <article class="company-highlight" id="company-mirap" data-company-id="mirap" data-area="都心" data-yield="middle">
+                          <h3><span class="rank">8位</span> ミラップ</h3>
+                          <p>不動産投資をライフプランニングの一環として提案。将来設計まで見据えたコンサルティングが強みです。</p>
+                           <div class="highlight-image-cta" style="margin-top:20px;">
+                            <a href="#" class="cta-button" data-company-id="mirap">無料資料請求はこちら</a>
+                          </div>
+                        </article>
+
+                    </section>
+
+                    <!-- 監修者情報セクション -->
+                    <section class="section" id="supervisor-info">
+                        <h2>このランキングの監修者</h2>
+                        <div class="supervisor-profile">
+                            <div class="supervisor-img">
+                                <img src="https://placehold.co/150x150/cccccc/ffffff?text=監修者写真" alt="監修者 田中太郎" loading="lazy" width="150" height="150">
+                            </div>
+                            <div class="supervisor-details">
+                                <h3>田中 太郎（Taro Tanaka）</h3>
+                                <h4>不動産投資アナリスト / FP1級技能士</h4>
+                                <p>大手不動産会社で15年間、投資用不動産の売買・仲介に従事。その後独立し、現在は個人投資家向けにコンサルティングやセミナー活動を行う。客観的なデータ分析に基づいた的確なアドバイスに定評がある。著書に「はじめての不動産投資 成功の法則」など。</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- コラム記事セクション -->
+                    <section class="section" id="columns">
+                        <h2>不動産投資お役立ちコラム</h2>
+                        <div class="column-list">
+                            <article class="column-item">
+                                <h4><a href="#">不動産投資のメリット・デメリットを徹底解説</a></h4>
+                                <p>不動産投資を始める前に知っておきたいメリットと、注意すべきデメリットを専門家がわかりやすく解説します...</p>
+                            </article>
+                            <article class="column-item">
+                                <h4><a href="#">【初心者必見】物件選びで失敗しないための5つのチェックポイント</a></h4>
+                                <p>将来の資産価値を大きく左右する物件選び。プロが実践する、失敗しないための重要なチェックポイントを5つご紹介...</p>
+                            </article>
+                            <article class="column-item">
+                                <h4><a href="#">2024年の不動産市況はどうなる？専門家による今後の見通し</a></h4>
+                                <p>金利の動向や法改正など、2024年の不動産市場に影響を与える要因を分析し、今後の市況を予測します...</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- =======================================================
+                右カラム: サイドバー
+                ======================================================== -->
+                <aside class="sidebar">
+                    <div class="sidebar-inner">
+                        <div class="sidebar-widget recommended-company-widget">
+                            <h4>今月のおすすめ会社</h4>
+                            <a href="#company-renosy"><img src="https://placehold.co/400x300/e60012/ffffff?text=RENOSY" alt="リノシー" loading="lazy"></a>
+                            <h5>リノシー (RENOSY)</h5>
+                            <p>AI技術を駆使した効率的な物件提案で、初心者から経験者まで幅広く支持されています。</p>
+                            <a href="#company-renosy" class="cta-button" data-company-id="renosy">詳細を見る</a>
+                        </div>
+
+                        <div class="sidebar-widget popular-articles-widget">
+                            <h4>当サイト人気TOP3</h4>
+                            <ol class="popular-list" style="counter-reset: popular-counter;">
+                                <li><a href="#company-renosy">リノシー (RENOSY)</a></li>
+                                <li><a href="#company-jp-returns">J.P.Returns</a></li>
+                                <li><a href="#company-property-agent">プロパティエージェント</a></li>
+                            </ol>
+                        </div>
+
+                        <div class="sidebar-widget" id="filter-widget">
+                            <h4>目的別に絞り込む</h4>
+                            <div class="filter-group">
+                                <label for="area-filter">物件エリアで選ぶ</label>
+                                <select id="area-filter" data-filter="area">
+                                    <option value="all">すべて</option>
+                                    <option value="都心">都心</option>
+                                    <option value="全国">全国</option>
+                                </select>
+                            </div>
+                            <!-- 他のフィルタもここに追加可能 -->
+                            <!--
+                            <div class="filter-group" style="margin-top: 16px;">
+                                <label for="yield-filter">利回りで選ぶ</label>
+                                <select id="yield-filter" data-filter="yield">
+                                    <option value="all">すべて</option>
+                                    <option value="high">高利回り</option>
+                                    <option value="middle">中利回り</option>
+                                    <option value="low">安定</option>
+                                </select>
+                            </div>
+                            -->
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4>不動産投資会社選びの3つのポイント</h4>
+                            <ol>
+                                <li><strong>実績と信頼性：</strong>上場しているか、管理戸数は十分か。</li>
+                                <li><strong>物件の質：</strong>将来性のあるエリアか、入居率が高いか。</li>
+                                <li><strong>サポート体制：</strong>購入後の管理や相談体制は手厚いか。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- =======================================================
+    フッターセクション
+    ======================================================== -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="#">利用規約</a>
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">運営会社</a>
+                <a href="#">調査概要</a>
+                <a href="#">編集方針</a>
+            </nav>
+            <p style="margin-top: 16px; font-size: 12px;">&copy; 2024 不動産投資ランキング. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- フォルダ構成変更に伴いパスを更新 -->
+    <script src="js/script.js" defer></script>
 </body>
 </html>
+
