@@ -7,7 +7,7 @@
 /* Palette & base typography override */
 :root {
   --font-family-base: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  --main-text-color: #2f3a4a;
+  --main-text-color: #324a2f;
   --key-color-accent: #2f6ee0;           /* Primary blue */
   --key-color-accent-hover: #1e4fc3;     /* Darker blue */
   --accent-red: #e73c45;                 /* CTA red */
@@ -68,6 +68,67 @@ h2::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width:
 /* Company highlight cards */
 .company-highlight { border-radius:14px; box-shadow: none; position:relative; padding:28px; }
 .company-highlight::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px; border-top-left-radius:14px; border-bottom-left-radius:14px; background:linear-gradient(180deg,var(--key-color-accent),#4c8dff); }
+
+/* Campaign banner (h4) */
+.campaign-banner {
+  position: relative;
+  margin: 16px 0 24px;
+  padding: 10px 16px 12px 44px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--key-color-accent);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(47, 110, 224, 0.08) 0 10px,
+      rgba(47, 110, 224, 0.02) 10px 20px
+    );
+}
+.campaign-banner::before {
+  /* gift icon */
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px; height: 22px;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none'><path d='M3 10h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10Z' fill='%23eaf3ff' stroke='%232f6ee0' stroke-width='1.4'/><path d='M3 8h18v3H3z' fill='%232f6ee0'/><path d='M12 4c-1.2-1.2-3.8-1-4.5.8-.6 1.5.6 2.8 2.4 2.8H12V4Z' fill='%23e73c45'/><path d='M12 4c1.2-1.2 3.8-1 4.5.8.6 1.5-.6 2.8-2.4 2.8H12V4Z' fill='%23e73c45'/><path d='M11.2 3.8v18.2' stroke='%232f6ee0' stroke-width='1.6'/></svg>");
+}
+.campaign-banner::after {
+  /* bottom notch */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 18px; height: 10px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(47, 110, 224, 0.08) 0 10px,
+      rgba(47, 110, 224, 0.02) 10px 20px
+    );
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+/* Company review section heading */
+.company-reviews-heading {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  color: #30415a;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 8px 0 12px;
+}
+
+/* Safety: prevent duplicate banners if inserted twice by markup */
+.campaign-banner + .campaign-banner { display: none; }
 
 /* CTA buttons → red accent */
 .cta-button {
@@ -140,4 +201,3 @@ h2::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width:
 }
 .company-highlight h3 .score-label { font-size: 11px; color: #5a6a85; font-weight: 700; line-height: 1; }
 .company-highlight h3 .score-value { font-size: 14px; color: var(--accent-red); font-weight: 800; line-height: 1; }
-
