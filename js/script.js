@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableRows = document.querySelectorAll('#summary-table tbody tr');
     tableRows.forEach(row => {
         row.addEventListener('click', (e) => {
-            // ボタン自体がクリックされた場合はスクロールさせない
-            if (e.target.closest('.cta-button')) {
+            // ボタンやリンク(aタグ)自体がクリックされた場合はスクロールさせない
+            if (e.target.closest('a')) {
                 return;
             }
             
@@ -275,4 +275,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 });
-

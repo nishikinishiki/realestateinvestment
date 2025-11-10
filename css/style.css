@@ -1,20 +1,29 @@
+/* =========================================================
+   統合・最適化済みスタイル
+   ========================================================= */
+
 /* :root はドキュメントのルート要素 (<html>) を選択し、カスタムプロパティ (CSS変数) を定義します */
 :root {
-    --main-text-color: #333333;
-    --key-color-accent: #005bac; /* 落ち着いた青に変更 */
-    --key-color-accent-hover: #004a8c; /* ホバー色も変更 */
-    --background-color-light: #f8f8f8;
-    --background-color-medium: #f5f5f5;
-    --border-color: #dddddd;
+    --main-text-color: #393c3d;
+    --key-color-accent: #2f6ee0;
+    --key-color-accent-hover: #1e4fc3;
+    --background-color-light: #f5f9ff;
+    --background-color-medium: #eaf3ff;
+    --border-color: #d9e3f5;
+    --font-family-base: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    --border-radius: 10px;
+    --accent-red: #e73c45;
+    --accent-red-dark: #c92f37;
     --white-color: #ffffff;
-    --font-family-base: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
     --content-width: 1100px;
-    --border-radius: 8px;
-    --star-color-active: #f5a623; /* 星評価のアクティブ色 */
-    --star-color-inactive: #d8d8d8; /* 星評価の非アクティブ色 */
+    --star-color-active: #f5a623;
+    --star-color-inactive: #d8d8d8;
 }
 
-/* --- 基本スタイルとリセット --- */
+/* =========================================================
+   1. 基本スタイル & リセット
+   ========================================================= */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -31,6 +40,8 @@ body {
     background-color: var(--white-color);
     line-height: 1.8;
     font-size: 16px;
+    text-rendering: optimizeLegibility; 
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -55,38 +66,73 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 { font-size: 32px; text-align: center; margin-bottom: 24px; }
-h2 { font-size: 28px; border-left: 4px solid var(--key-color-accent); padding-left: 16px; margin-bottom: 32px; } /* デザイン変更 */
-h3 { font-size: 22px; border-left: 4px solid var(--key-color-accent); padding-left: 12px; margin-bottom: 24px; } /* 太さを調整 */
-h4 { font-size: 18px; background-color: var(--background-color-medium); padding: 12px 16px; border-radius: var(--border-radius); margin-bottom: 16px;}
+
+/* h2 (リボンスタイル) */
+h2 {
+    position: relative;
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--key-color-accent) 0%, #4c8dff 100%);
+}
+
+/* h3 (ベーススタイル - コンポーネント側で上書き) */
+h3 { 
+    font-size: 22px; 
+    border-left: 4px solid var(--key-color-accent); 
+    padding-left: 12px; 
+    margin-bottom: 24px; 
+} 
+
+/* h4 (ベーススタイル - コンポーネント側で上書き) */
+h4 { 
+    font-size: 18px; 
+    background-color: var(--background-color-medium); 
+    padding: 12px 16px; 
+    border-radius: var(--border-radius); 
+    margin-bottom: 16px;
+}
 h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
 
-/* --- レイアウト構造 --- */
-.container {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
+/* =========================================================
+   2. レイアウト
+   ========================================================= */
 
+/* ヘッダー */
 .header {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+    border-bottom: 0;
     background-color: var(--white-color);
 }
-
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .header .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 900;
     color: var(--key-color-accent);
+    letter-spacing: .02em;
 }
 
-.main {
-    /* main-layout に padding を移動 */
+/* 更新情報エリア */
+.update-info {
+    background: #f7faff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #5a6a85;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* メインレイアウト (2カラム) */
+.container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .main-layout {
@@ -94,198 +140,264 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     display: flex;
     gap: 40px;
 }
-
 .main-content {
     flex: 1;
     min-width: 0;
 }
-
 .sidebar {
     width: 300px;
     flex-shrink: 0;
 }
-
-/* --- サイドバー sticky --- */
 .sidebar-inner {
     position: sticky;
     top: 20px;
 }
 
+/* フッター */
 .footer {
     background-color: var(--main-text-color);
     color: var(--white-color);
     padding: 40px 0;
     text-align: center;
 }
-
 .footer a {
     color: var(--white-color);
     margin: 0 10px;
 }
 
-/* --- コンポーネントスタイル --- */
-/* セクション */
+/* =========================================================
+   3. コンポーネント
+   ========================================================= */
+
+/* セクション (汎用) */
 .section {
     margin-bottom: 60px;
 }
 
+/* 導入テキスト */
 .intro-text {
-    background-color: var(--background-color-light);
+    position: relative;
     padding: 32px;
-    border-radius: var(--border-radius);
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    background: repeating-linear-gradient(-45deg, var(--background-color-medium) 0 12px, var(--background-color-light) 12px 24px);
+    overflow: hidden;
     margin-bottom: 40px;
 }
 
-/* タブ切り替え */
+
+/* ランキングタブ */
 .ranking-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 .tab-button {
-    padding: 10px 20px;
-    font-size: 15px;
-    font-weight: bold;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
     border: 1px solid var(--border-color);
-    background-color: var(--background-color-light);
+    background: #fff;
     color: var(--main-text-color);
-    border-radius: var(--border-radius);
-    transition: all 0.3s ease;
+    border-radius: 999px;
+    transition: all .2s ease;
 }
 .tab-button.active {
-    background-color: var(--white-color);
-    color: var(--key-color-accent);
+    background: var(--key-color-accent);
+    color: #fff;
     border-color: var(--key-color-accent);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .tab-button:not(.active):hover {
-    opacity: 0.8;
+    opacity: 1;
+    background: var(--background-color-light);
 }
 
-/* テーブル */
+/* 比較テーブル */
 .table-wrapper {
     overflow-x: auto;
 }
-
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
     white-space: nowrap;
     background: var(--white-color);
+    border-top: 3px solid var(--key-color-accent);
+    table-layout: auto; /* !important を削除 */
 }
-
 .comparison-table th, .comparison-table td {
     border: 1px solid var(--border-color);
     padding: 12px 16px;
     text-align: center;
+    vertical-align: middle;
+    white-space: nowrap; /* !important を削除 */
 }
-
 .comparison-table th {
-    background-color: var(--background-color-medium);
-    font-weight: bold;
+    background: linear-gradient(180deg, var(--background-color-medium) 0%, #f5f9ff 100%);
+    font-weight: 800;
+    color: #30415a;
 }
-
 .comparison-table tbody tr {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .comparison-table tbody tr:hover {
-    background-color: var(--background-color-light); /* 控えめな色に変更 */
+    background-color: var(--background-color-light); 
 }
-
+.comparison-table tbody tr:nth-child(even) { 
+    background-color: #fbfdff; 
+}
 .comparison-table .company-name {
+    /* (元のスタイル) */
     font-weight: bold;
     text-align: left;
 }
-
 .comparison-table .rank {
-    font-size: 22px; /* 少し小さく */
-    font-weight: bold;
-    color: var(--main-text-color); /* 色を控えめに変更 */
+    /* (元のスタイル) */
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    font-size:16px;
+    font-weight:800;
+    color:var(--key-color-accent);
+    background: linear-gradient(180deg,#fff 0%,#eef4ff 100%);
+    border:2px solid var(--key-color-accent);
 }
-
 .comparison-table .rating {
+    /* (元のスタイル) */
     font-weight: bold;
     color: var(--key-color-accent);
     font-size: 18px;
 }
 
-/* ボタン */
+/* CTAボタン */
 .cta-button {
     display: inline-block;
-    background-color: var(--key-color-accent); /* グラデーションを単色に変更 */
+    background: linear-gradient(180deg, var(--accent-red) 0%, #d8313a 100%);
     color: var(--white-color);
     font-size: 18px;
-    font-weight: bold;
-    padding: 14px 32px; /* 少し調整 */
-    border-radius: var(--border-radius); /* 角丸を調整 */
+    font-weight: 800;
+    padding: 14px 28px;
+    border-radius: 999px;
     text-align: center;
-    box-shadow: none; /* 影を削除 */
-    transition: background-color 0.3s; /* トランジションをシンプルに */
+    transition: none;
     border: none;
     cursor: pointer;
 }
-
 .cta-button:hover {
     opacity: 1;
-    background-color: var(--key-color-accent-hover); /* ホバー効果を色の変更のみに */
-    transform: none; /* 動きを削除 */
-    box-shadow: none; /* 影を削除 */
+    transform: none;
+}
+.cta-button.blue, .cta-button--primary { 
+    background: linear-gradient(180deg, var(--key-color-accent) 0%, var(--key-color-accent-hover) 100%); 
+    /* テーブル内のボタン用にサイズを小さく調整 */
+    font-size: 14px;
+    padding: 8px 16px;
 }
 
-/* 企業紹介ハイライト */
+/* 企業ハイライトカード */
 .company-highlight {
     border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    border-radius: 14px;
     margin-bottom: 40px;
-    padding: 32px;
+    padding: 28px;
     background-color: var(--white-color);
-    transition: none; /* トランジションを削除 */
+    position:relative;
 }
-
-.company-highlight:hover {
-    box-shadow: none; /* 影を削除 */
+.company-highlight::before { 
+    content:""; 
+    position:absolute; 
+    left:0; 
+    top:0; 
+    bottom:0; 
+    width:4px; 
+    border-top-left-radius:14px; 
+    border-bottom-left-radius:14px; 
+    background:linear-gradient(180deg,var(--key-color-accent),#4c8dff); 
 }
-
+/* 企業ハイライト h3 (ベースh3の上書き) */
+.company-highlight h3 {
+  margin: 0 0 16px;
+  background: linear-gradient(180deg, var(--key-color-accent) 0%, #1e55c5 100%);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #1e4fc3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  border-left: none; /* ベースh3のリセット */
+}
+.company-highlight h3 .rank {
+  position: absolute;
+  left: -12px;
+  top: -12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  background: linear-gradient(180deg, #d4af37 0%, #b88a0a 100%);
+  color: #fff;
+  border: 2px solid #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+.company-highlight h3 .score-badge {
+  margin-left: 12px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 108px;
+}
+.company-highlight h3 .score-label { font-size: 11px; color: #5a6a85; font-weight: 700; line-height: 1; }
+.company-highlight h3 .score-value { font-size: 14px; color: var(--accent-red); font-weight: 800; line-height: 1; }
+/* カード内部品 */
 .highlight-header {
     display: flex;
     gap: 24px;
     margin-bottom: 24px;
 }
-
 .highlight-info {
     flex: 1;
 }
-
 .highlight-image-cta {
     width: 250px;
     text-align: center;
 }
-
 .highlight-image-cta img {
     width: 100%;
     height: auto;
     border-radius: var(--border-radius);
     margin-bottom: 16px;
 }
-
 .tag-list {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 16px;
 }
-
 .tag {
-    background-color: var(--key-color-accent);
-    color: var(--white-color);
+    background:#eef4ff;
+    color:var(--key-color-accent);
     font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    border:1px solid var(--border-color);
 }
 
 /* 監修者情報 */
@@ -297,20 +409,19 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     padding: 32px;
     border-radius: var(--border-radius);
 }
-
 .supervisor-img img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     object-fit: cover;
 }
-
+/* 監修者 h3 (ベースh3の上書き) */
 .supervisor-details h3 {
     border: none;
     padding: 0;
     margin-bottom: 8px;
 }
-
+/* 監修者 h4 (ベースh4の上書き) */
 .supervisor-details h4 {
     background: none;
     padding: 0;
@@ -325,63 +436,27 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     display: grid;
     gap: 24px;
 }
-
 .column-item {
     border: 1px solid var(--border-color);
     padding: 24px;
     border-radius: var(--border-radius);
-    transition: box-shadow 0.3s;
 }
-
-.column-item:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
+/* コラム h4 (ベースh4の上書き) */
 .column-item h4 {
     margin-top: 0;
     background: none;
     padding: 0;
     border-radius: 0;
 }
-
 .column-item h4 a {
     color: var(--main-text-color);
     text-decoration: underline;
 }
-
 .column-item p {
     margin-bottom: 0;
 }
 
-/* 更新情報エリア */
-.update-info {
-    background-color: var(--background-color-medium);
-    padding: 12px 0;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-    border-bottom: 1px solid var(--border-color);
-}
-
-/* おすすめ企業ウィジェット */
-.recommended-company-widget img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    margin-bottom: 16px;
-}
-
-.recommended-company-widget p {
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-
-.recommended-company-widget .cta-button {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px;
-}
-
-/* 口コミ・監修コメント */
+/* 口コミ・監修コメントボックス */
 .review-box {
     background-color: var(--background-color-light);
     border: 1px solid var(--border-color);
@@ -390,79 +465,60 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     margin-top: 24px;
     position: relative;
 }
-
 .review-box p:last-child {
     margin-bottom: 0;
 }
-
-/* 利用者口コミボックス (レイアウト調整) */
 .review-box-user {
     display: flex;
     gap: 20px;
     align-items: flex-start;
 }
-
 .review-icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     flex-shrink: 0;
-    /* SVGファイル自体に背景色や円が含まれるため、CSSでの装飾は削除 */
 }
-
 .review-content {
     flex: 1;
 }
-
 .review-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4px;
 }
-
+/* 口コミ h4 (ベースh4の上書き) */
 .review-box-user .review-header h4 {
     background: none;
     padding: 0;
     margin: 0;
-    font-size: 16px; /* 画像に合わせて調整 */
+    font-size: 16px;
     font-weight: bold;
     color: var(--main-text-color);
 }
-
 .review-meta {
     font-size: 14px;
     color: #666;
     flex-shrink: 0;
     margin-left: 16px;
 }
-
 .review-rating {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
 }
-
 .star-rating {
     color: var(--star-color-active);
     font-size: 20px;
     letter-spacing: 2px;
 }
-
-/* 星評価のロジック（簡易版）: data-ratingに基づいて星を表示 */
-/* より厳密にはJSか、CSSのテクニック（mask, clip-path）が必要です */
-/* ここでは簡易的にdata-ratingに応じた色分けを想定 */
-.review-rating[data-rating^="4"] .star-rating::after { content: ""; /* 4.5星などを表現する場合 */ }
-.review-rating[data-rating^="3"] .star-rating { color: var(--star-color-inactive); /* 例 */ }
-
-
 .rating-value {
     font-size: 20px;
     font-weight: bold;
     color: var(--star-color-active);
     margin-left: 10px;
 }
-
 
 /* 口コミスライダー */
 .review-slider-container {
@@ -477,7 +533,7 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
 .review-slide {
     flex: 0 0 100%;
     box-sizing: border-box;
-    padding: 0 5px; /* スライド間のわずかな余白 */
+    padding: 0 5px; 
 }
 .slider-nav {
     position: absolute;
@@ -517,14 +573,78 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     background-color: var(--key-color-accent);
 }
 
-/* サイドバーウィジェット */
-.sidebar-widget {
-    background-color: var(--background-color-light);
-    padding: 24px;
-    border-radius: var(--border-radius);
-    margin-bottom: 24px;
+/* キャンペーンバナー (h4) */
+.campaign-banner {
+  position: relative;
+  margin: 16px 0 24px;
+  padding: 10px 16px 12px 44px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--key-color-accent);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(47, 110, 224, 0.08) 0 10px,
+      rgba(47, 110, 224, 0.02) 10px 20px
+    );
+}
+.campaign-banner::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px; height: 22px;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none'><path d='M3 10h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10Z' fill='%23eaf3ff' stroke='%232f6ee0' stroke-width='1.4'/><path d='M3 8h18v3H3z' fill='%232f6ee0'/><path d='M12 4c-1.2-1.2-3.8-1-4.5.8-.6 1.5.6 2.8 2.4 2.8H12V4Z' fill='%23e73c45'/><path d='M12 4c1.2-1.2 3.8-1 4.5.8.6 1.5-.6 2.8-2.4 2.8H12V4Z' fill='%23e73c45'/><path d='M11.2 3.8v18.2' stroke='%232f6ee0' stroke-width='1.6'/></svg>");
+}
+.campaign-banner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 18px; height: 10px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(47, 110, 224, 0.08) 0 10px,
+      rgba(47, 110, 224, 0.02) 10px 20px
+    );
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
+/* バナー重複防止 */
+.campaign-banner + .campaign-banner { display: none; }
+
+/* 口コミセクション見出し (h4) */
+.company-reviews-heading {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  color: #30415a;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 8px 0 12px;
+}
+
+/* =========================================================
+   4. サイドバー
+   ========================================================= */
+
+/* サイドバーウィジェット (ベース) */
+.sidebar-widget {
+    background: #fff;
+    padding: 24px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+}
+/* ウィジェット h4 (ベースh4の上書き) */
 .sidebar-widget h4 {
     margin-top: 0;
     margin-bottom: 16px;
@@ -532,6 +652,22 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     background-color: transparent;
     border-bottom: 2px solid var(--key-color-accent);
     padding-bottom: 8px;
+}
+
+/* おすすめ企業ウィジェット */
+.recommended-company-widget img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+}
+.recommended-company-widget p {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+.recommended-company-widget .cta-button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
 }
 
 /* 人気記事ウィジェット */
@@ -564,13 +700,12 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
 .popular-articles-widget .popular-list li:nth-child(2)::before { background-color: #c0c0c0; } /* Silver */
 .popular-articles-widget .popular-list li:nth-child(3)::before { background-color: #cd7f32; } /* Bronze */
 
-
+/* 絞り込みフィルター */
 .filter-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
 }
-
 .filter-group select {
     width: 100%;
     padding: 8px;
@@ -579,12 +714,29 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     font-size: 16px;
 }
 
-/* --- レスポンシブ対応 --- */
+/* =========================================================
+   4.5 ファーストビュー画像
+   ========================================================= */
+.fv-image-section {
+    margin-bottom: 40px; /* 削除した .intro-text のマージンを踏襲 */
+}
+.fv-image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    display: block; /* imgの下の余白を消す */
+}
+
+
+/* =========================================================
+   5. レスポンシブ対応 (768px以下)
+   ========================================================= */
+
 @media (max-width: 768px) {
     body {
         font-size: 15px;
     }
-
     h1 { font-size: 26px; }
     h2 { font-size: 22px; }
     h3 { font-size: 19px; }
@@ -593,37 +745,29 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
         flex-direction: column;
         padding: 30px 0;
     }
-
     .sidebar {
         width: 100%;
     }
-    
     .sidebar-inner {
         position: static;
     }
-
     .container {
         padding: 0 15px;
     }
-    
     .supervisor-profile {
         flex-direction: column;
         text-align: center;
     }
-
     .highlight-header {
         flex-direction: column;
     }
-    
     .highlight-image-cta {
         width: 100%;
     }
-    
     .cta-button {
         width: 100%;
-        padding: 16px;
+        padding: 14px;
     }
-
     .review-box-user {
         flex-direction: column;
         align-items: center;
@@ -635,3 +779,6 @@ h5 { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
     }
 }
 
+/* =========================================================
+   6. 比較表の新しいスタイル (追記) → すべて削除
+   ========================================================= */

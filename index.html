@@ -41,18 +41,17 @@
     ======================================================== -->
     <main class="main">
         <div class="container">
-            <h1><span style="color: var(--key-color-accent);">プロが選ぶ！</span><br>不動産投資会社おすすめランキングTOP8</h1>
-            
-            <div class="intro-text section">
-                <p>「将来のために資産形成を始めたいけど、どの不動産投資会社を選べばいいかわからない…」そんなお悩みはありませんか？</p>
-                <p>当サイトでは、数ある不動産投資会社の中から、<strong>特に初心者におすすめできる優良企業を8社厳選</strong>しました。専門家の視点から「利回り」「実績」「サポート体制」などを徹底比較し、ランキング形式でご紹介します。あなたの目的に合った最適なパートナーを見つける手助けになれば幸いです。</p>
-            </div>
 
             <div class="main-layout">
                 <!-- =======================================================
                 左カラム: 主要コンテンツ
                 ======================================================== -->
                 <div class="main-content">
+                    
+                    <!-- ファーストビュー画像セクション -->
+                    <section class="section fv-image-section" id="fv-image">
+                        <img src="images/不動産投資会社_header.svg" alt="不動産投資会社おすすめランキング" loading="lazy" width="750" height="980">
+                    </section>
                     
                     <!-- 総合比較表セクション -->
                     <section class="section" id="ranking-summary">
@@ -67,6 +66,7 @@
                         </div>
 
                         <div class="table-wrapper">
+                            <!-- テーブルの構造を、メダルや縦積みレイアウト適用前の状態に戻しました -->
                             <table class="comparison-table" id="summary-table">
                                 <thead>
                                     <tr>
@@ -83,102 +83,109 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- データは一例です -->
+                                    <!-- リノシー -->
                                     <tr data-id="renosy" data-area="都心">
                                         <td><span class="rank">1</span></td>
                                         <td class="company-name">リノシー</td>
-                                        <td><span class="rating">◎</span> 10万円~</td>
-                                        <td><span class="rating">◎</span> アプリで完結</td>
-                                        <td><span class="rating">◎</span> 充実</td>
+                                        <td class="rating">◎</td>
+                                        <td class="rating">◎</td>
+                                        <td class="rating">◎</td>
                                         <td>99.6%</td>
                                         <td>都心</td>
-                                        <td>Amazon<br>5万円</td>
-                                        <td><span class="rating">◎</span> 上場</td>
-                                        <td><a href="#company-renosy" class="cta-button" data-company-id="renosy">詳細</a></td>
+                                        <td>Amazon 5万円</td>
+                                        <td class="rating">◎</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="renosy">詳細</a></td>
                                     </tr>
+                                    <!-- J.P.Returns -->
                                     <tr data-id="jp-returns" data-area="都心">
                                         <td><span class="rank">2</span></td>
                                         <td class="company-name">J.P.Returns</td>
-                                        <td><span class="rating">○</span> 30万円~</td>
-                                        <td><span class="rating">○</span> 普通</td>
-                                        <td><span class="rating">◎</span> 確定申告サポート</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">◎</td>
                                         <td>99.6%</td>
                                         <td>都心</td>
-                                        <td>Amazon<br>5万円</td>
-                                        <td><span class="rating">○</span> 中堅</td>
-                                        <td><a href="#company-jp-returns" class="cta-button" data-company-id="jp-returns">詳細</a></td>
+                                        <td>Amazon 5万円</td>
+                                        <td class="rating">○</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="jp-returns">詳細</a></td>
                                     </tr>
+                                    <!-- トーシンパートナーズ -->
                                     <tr data-id="toshin" data-area="都心">
                                         <td><span class="rank">3</span></td>
                                         <td class="company-name">トーシンパートナーズ</td>
-                                        <td><span class="rating">○</span> 30万円~</td>
-                                        <td><span class="rating">○</span> 普通</td>
-                                        <td><span class="rating">○</span> 標準的</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">○</td>
                                         <td>99.0%</td>
                                         <td>都心</td>
                                         <td>-</td>
-                                        <td><span class="rating">○</span> 中堅</td>
-                                        <td><a href="#company-toshin" class="cta-button" data-company-id="toshin">詳細</a></td>
+                                        <td class="rating">○</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="toshin">詳細</a></td>
                                     </tr>
+                                    <!-- シノケンハーモニー -->
                                     <tr data-id="synergy" data-area="全国">
                                         <td><span class="rank">4</span></td>
                                         <td class="company-name">シノケンハーモニー</td>
-                                        <td><span class="rating">◎</span> 10万円~</td>
-                                        <td><span class="rating">△</span> やや手間</td>
-                                        <td><span class="rating">○</span> 標準的</td>
+                                        <td class="rating">◎</td>
+                                        <td class="rating">△</td>
+                                        <td class="rating">○</td>
                                         <td>99.2%</td>
                                         <td>全国</td>
                                         <td>-</td>
-                                        <td><span class="rating">◎</span> 上場</td>
-                                        <td><a href="#company-synergy" class="cta-button" data-company-id="synergy">詳細</a></td>
+                                        <td class="rating">◎</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="synergy">詳細</a></td>
                                     </tr>
+                                    <!-- プロパティエージェント -->
                                     <tr data-id="property-agent" data-area="都心">
                                         <td><span class="rank">5</span></td>
                                         <td class="company-name">プロパティエージェント</td>
-                                        <td><span class="rating">○</span> 50万円~</td>
-                                        <td><span class="rating">○</span> 普通</td>
-                                        <td><span class="rating">◎</span> 充実</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">◎</td>
                                         <td>99.5%</td>
                                         <td>都心</td>
                                         <td>-</td>
-                                        <td><span class="rating">◎</span> 上場</td>
-                                        <td><a href="#company-property-agent" class="cta-button" data-company-id="property-agent">詳細</a></td>
+                                        <td class="rating">◎</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="property-agent">詳細</a></td>
                                     </tr>
+                                    <!-- 日本財託 -->
                                     <tr data-id="zaitaku" data-area="都心">
                                         <td><span class="rank">6</span></td>
                                         <td class="company-name">日本財託</td>
-                                        <td><span class="rating">△</span> 100万円~</td>
-                                        <td><span class="rating">△</span> 手間あり</td>
-                                        <td><span class="rating">○</span> 標準的</td>
+                                        <td class="rating">△</td>
+                                        <td class="rating">△</td>
+                                        <td class="rating">○</td>
                                         <td>98.8%</td>
                                         <td>都心</td>
                                         <td>-</td>
-                                        <td><span class="rating">○</span> 大手</td>
-                                        <td><a href="#company-zaitaku" class="cta-button" data-company-id="zaitaku">詳細</a></td>
+                                        <td class="rating">○</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="zaitaku">詳細</a></td>
                                     </tr>
+                                    <!-- 野村不動産 -->
                                     <tr data-id="nomura" data-area="全国">
                                         <td><span class="rank">7</span></td>
                                         <td class="company-name">野村不動産</td>
-                                        <td><span class="rating">△</span> 高額</td>
-                                        <td><span class="rating">○</span> 普通</td>
-                                        <td><span class="rating">◎</span> 充実</td>
+                                        <td class="rating">△</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">◎</td>
                                         <td>非公開</td>
                                         <td>全国</td>
                                         <td>-</td>
-                                        <td><span class="rating">◎</span> 財閥系</td>
-                                        <td><a href="#company-nomura" class="cta-button" data-company-id="nomura">詳細</a></td>
+                                        <td class="rating">◎</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="nomura">詳細</a></td>
                                     </tr>
+                                    <!-- ミラップ -->
                                     <tr data-id="mirap" data-area="都心">
                                         <td><span class="rank">8</span></td>
                                         <td class="company-name">ミラップ</td>
-                                        <td><span class="rating">○</span> 30万円~</td>
-                                        <td><span class="rating">○</span> 普通</td>
-                                        <td><span class="rating">◎</span> ライフプラン相談</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">○</td>
+                                        <td class="rating">◎</td>
                                         <td>非公開</td>
                                         <td>都心</td>
                                         <td>-</td>
-                                        <td><span class="rating">△</span> ベンチャー</td>
-                                        <td><a href="#company-mirap" class="cta-button" data-company-id="mirap">詳細</a></td>
+                                        <td class="rating">△</td>
+                                        <td><a href="#" class="cta-button blue" data-company-id="mirap">詳細</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -199,22 +206,28 @@
                                         <span class="tag">初心者におすすめ</span>
                                         <span class="tag">都心特化</span>
                                     </div>
-                                    <p><strong>テクノロジーで不動産投資をスマートに。</strong><br>RENOSYはAIを活用して、将来性の高い物件を厳選。購入から管理、売却までをスマホアプリで完結できる手軽さが魅力です。忙しいビジネスパーソンや、初めて不動産投資を行う方に最適なサービスを提供しています。</p>
+                                    <p><strong>テクノロジーで不動産投資をスマートに。</strong>RENOSYはAIを活用して、将来性の高い物件を厳選。購入から管理、売却までをスマホアプリで完結できる手軽さが魅力です。忙しいビジネスパーソンや、初めて不動産投資を行う方に最適なサービスを提供しています。</p>
                                 </div>
                                 <div class="highlight-image-cta">
                                     <img src="https://placehold.co/400x300/005bac/ffffff?text=RENOSY" alt="リノシーのイメージ画像" loading="lazy" width="400" height="300">
                                     <a href="#" class="cta-button" data-company-id="renosy">無料資料請求はこちら</a>
                                 </div>
                             </div>
+                            
+                            <!-- キャンペーンバナー -->
+                            <h4 class="campaign-banner">今なら面談完了でAmazonギフト5万円分プレゼント</h4>
+
                             <!-- 監修者コメント -->
-                            <h4 class="campaign-banner">お得なキャンペーン実施中！</h4>
                             <div class="review-box">
                                 <h4>専門家からの監修コメント</h4>
                                 <p>RENOSYの強みは、なんといってもデータに基づいた客観的な物件提案力です。属人的な営業を排し、AIが膨大なデータから導き出した投資価値の高い物件のみを紹介するため、初心者でも安心して判断できます。アプリの使いやすさも業界随一です。</p>
                             </div>
+                            
+                            <!-- 口コミ見出し -->
+                            <h4 class="company-reviews-heading">利用者からの口コミ</h4>
+
                             <!-- 利用者口コミ スライダー -->
                             <div class="review-slider-container">
-                                <h4 class="company-reviews-heading">○○会社の口コミ</h4>
                                 <div class="review-slides">
                                     <div class="review-slide">
                                         <!-- 口コミボックス (画像参照に変更) -->
@@ -223,7 +236,7 @@
                                             <img src="images/icon-male.svg" alt="利用者アイコン" class="review-icon">
                                             <div class="review-content">
                                                 <div class="review-header">
-                                                    <h4>利用者口コミ (30代・男性)</h4>
+                                                    <h4>アプリで管理できるのが便利</h4>
                                                     <span class="review-meta">(30代・男性)</span>
                                                 </div>
                                                 <div class="review-rating" data-rating="5.0">
@@ -241,7 +254,7 @@
                                             <img src="images/icon-female.svg" alt="利用者アイコン" class="review-icon">
                                             <div class="review-content">
                                                 <div class="review-header">
-                                                    <h4>利用者口コミ (40代・女性)</h4>
+                                                    <h4>提案の根拠が明確だった</h4>
                                                     <span class="review-meta">(40代・女性)</span>
                                                 </div>
                                                 <div class="review-rating" data-rating="4.5">
@@ -272,18 +285,25 @@
                                     <p><strong>驚異の入居率99.6%を誇る実力派。</strong>J.P.Returnsは、東京23区内の駅近・築浅中古マンションに特化。安定した家賃収入が期待できるだけでなく、手厚い管理体制でオーナーの手間を最小限に抑えます。節税に関するセミナーも人気です。</p>
                                 </div>
                                 <div class="highlight-image-cta">
-                                    <img src="https://placehold.co/400x300/333333/ffffff?text=J.P.Returns" alt="J.P.Returnsのイメージ画像" loading="lazy" width="400" height="300">
+                                    <img src="images/banners/jpr_banner.png" alt="J.P.Returnsのイメージ画像" loading="lazy" width="400" height="300">
                                     <a href="#" class="cta-button" data-company-id="jp-returns">無料資料請求はこちら</a>
                                 </div>
                             </div>
+
+                            <!-- キャンペーンバナー -->
+                            <h4 class="campaign-banner">書籍プレゼント＆Amazonギフト5万円分</h4>
+
                             <!-- 監修者コメント -->
                             <div class="review-box">
                                 <h4>専門家からの監修コメント</h4>
                                 <p>J.P.Returnsの魅力は、立地選定の確かさです。需要が落ちにくい都心の駅近物件に絞ることで、長期的に安定した収益を目指せるポートフォolioを組むことができます。管理体制も充実しており、オーナーからの信頼も厚い企業です。</p>
                             </div>
+
+                            <!-- 口コミ見出し -->
+                            <h4 class="company-reviews-heading">利用者からの口コミ</h4>
+
                             <!-- 利用者口コミ スライダー -->
                              <div class="review-slider-container">
-                                <h4 class="company-reviews-heading">○○会社の口コミ</h4>
                                 <div class="review-slides">
                                     <div class="review-slide">
                                         <!-- 口コミボックス (画像参照に変更) -->
@@ -292,7 +312,7 @@
                                             <img src="images/icon-male.svg" alt="利用者アイコン" class="review-icon">
                                             <div class="review-content">
                                                 <div class="review-header">
-                                                    <h4>利用者口コミ (30代・会社員)</h4>
+                                                    <h4>担当者の説明が丁寧</h4>
                                                     <span class="review-meta">(30代・会社員)</span>
                                                 </div>
                                                 <div class="review-rating" data-rating="4.0">
@@ -476,4 +496,3 @@
     <script src="js/script.js" defer></script>
 </body>
 </html>
-
